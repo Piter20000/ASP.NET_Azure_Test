@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ASP.NET.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="Page_Title">
+    <h4>Customers List</h4>
+</div>
+<br/>
+<table class="table table-bordered">
+    <tr>
+        <th style="color:aqua">
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th style="text-align: center; color:aqua">
+            @Html.DisplayNameFor(model => model.ID)
+        </th>
+        <th> 
+        </th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <th style="text-align: center;">
+                @Html.DisplayFor(modelItem => item.ID)
+            </th>
+            <td style="text-align: center;">
+                @Html.ActionLink("Edit", "", new { id = item.ID }) |
+                @Html.ActionLink("Details", "", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<h6 style="text-align: center; color: red;">
+    Edit, Details, Delete - not vailable!
+</h6>

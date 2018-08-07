@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ASP.NET.Models.Order>
+
+@{
+    ViewBag.Title = "Orders";
+}
+
+<div class="Page_Title">
+    <h4>Orders List</h4>
+</div>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UID)
+        </th>
+        <th style="text-align: center;">
+            @Html.DisplayNameFor(model => model.Ordered)
+        </th>
+        <th style="text-align: center;">
+            @Html.DisplayNameFor(model => model.UserInformationsID)
+        </th>
+        <th style="text-align: center;">
+            @Html.DisplayNameFor(model => model.ShopItemID)
+        </th>
+        <th style="text-align: center;">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UID)
+            </td>
+            <td style="text-align: center;">
+                @Html.DisplayFor(modelItem => item.Ordered)
+            </td>
+            <td style="text-align: center;">
+                @Html.DisplayFor(modelItem => item.UserInformationsID)
+            </td>
+            <td style="text-align: center;">
+                @Html.DisplayFor(modelItem => item.ShopItemID)
+            </td>
+            <td style="text-align: center;">
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td style="text-align: center;">
+            
+                @Html.ActionLink("Edit", "Orders", new {id = item.ID}) |
+                @Html.ActionLink("Details", "Orders", new {id = item.ID}) |
+                @Html.ActionLink("Delete", "Orders", new {id = item.ID})
+            
+            </td>
+        </tr>
+    }
+
+</table>
+
+<h6 style="text-align: center; color: red;">
+    Edit, Details, Delete - Unenable
+</h6>

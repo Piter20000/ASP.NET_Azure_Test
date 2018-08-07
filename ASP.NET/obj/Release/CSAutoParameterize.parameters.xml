@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ASP.NET-20180729030952.mdf;Initial Catalog=aspnet-ASP.NET-20180729030952;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="K:\\ASP\.NET\\ASP\.NET_Azure_Test\\ASP\.NET\\ASP\.NET\\ASP\.NET\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

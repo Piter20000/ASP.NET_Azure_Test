@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "User_Panel";
+}
+
+<div class="Page_Title">
+    <h4>User Panel</h4>
+</div>
+<br />
+<hr />
+<div Class="Control_Panel">
+
+    @Html.ActionLink("Shopping Cart", "ShoppingCart", "Shop", null, new { @class = "btn btn-outline-primary btn-lg btn-block" })
+    @Html.ActionLink("Shop Items", "Index", "Shop", null, new { @class = "btn btn-outline-secondary btn-lg btn-block" })
+    @Html.ActionLink("Add New Item", "New_Item", "Shop", null, new { @class = "btn btn-outline-success btn-lg btn-block" })
+    @Html.ActionLink("Shop Statistics", "Statistics", "Charts", null, new { @class = "btn btn-outline-danger btn-lg btn-block" })
+    @Html.ActionLink("Users List", "Index", "Customers", null, new { @class = "btn btn-outline-warning btn-lg btn-block" })
+    @Html.ActionLink("Charts", "Index", "Charts", null, new { @class = "btn btn-outline-info btn-lg btn-block" })
+    @Html.ActionLink("Orders", "Orders", "Shop", null, new { @class = "btn btn-outline-light btn-lg btn-block" })
+
+</div>
+<hr />
+
+@section Scripts {
+    @Scripts.Render("~/bundles/bootstrap")
+}
+
+

@@ -1,0 +1,89 @@
+﻿@using NET.Models
+@model List<NET.Models.Shop_Item>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    // Create Shopping Cart Collection
+    var Shopping_Cart_List = new List<Shopping_Cart>();
+
+    // Check Session
+    // If Session exists copy array
+    // Delete Session
+    if ((Session["Shopping_Cart"] == null) == false)
+    {
+        Shopping_Cart_List = (List<Shopping_Cart>)Session["Shopping_Cart"];
+        Session["Shopping_Cart"] = null;
+    }
+
+    // Check if Post exists
+    if (IsPost)
+    {
+        // Copy Post values into local variables
+        var quantity = Request.Form["quantity"].AsInt();
+        var name = Request.Form["name"];
+        var price = Request.Form["price"].AsFloat();
+        var itemId = Request.Form["item_id"].AsInt();
+
+        // Set flag as false - check if item exists in ShoppingCartList
+        var flag = false;
+
+        // Check if item exists in ShoppingCastList
+        foreach (var item in Shopping_Cart_List)
+        {
+            // If exists update values
+            if (item.ID == itemId)
+            {
+                // Method Update:
+                // Quantity
+                // Sum_Price
+                item.UpdateShoppingCart(quantity);
+
+                // Set flag as true - item exists
+                flag = true;
+            }
+        }
+
+        // If item don't exists
+        if (!flag)
+        {
+            // Add item into ShoppingCartList
+            Shopping_Cart_List.Add(new Shopping_Cart(itemId, name, quantity, price));
+        }
+
+        // Copy Shopping into Session
+        Session["Shopping_Cart"] = Shopping_Cart_List;
+    }
+}
+<div class="Page_Title">
+    <h4>Shop</h4>
+</div>
+
+<hr />
+<div class="container-fluid" id="shopContainer">
+
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-4 col-md-3">
+            <form method="post">
+                <div class="product" style="margin: 5px;">
+                    <img src="@item.Image_URL" alt="@item.Image_Name" class="img-responsive" />
+                    <h4 class="text-info">@item.Name</h4>
+                    <div class="Price"><h4>$ @item.Price</h4></div>
+                    <input type="number" name="quantity" class="form-control" min="1" value="1" />
+                    <input type="hidden" name="name" value="@item.Name" />
+                    <input type="hidden" name="price" value="@item.Price" />
+                    <input type="hidden" name="item_id" value="@item.ID" />
+                    <input type="submit" style="margin-top: 5px; margin-bottom: 5px;" class="btn btn-info" value="Add to Cart" />
+                </div>
+            </form>
+        </div>
+    }
+</div>
+<hr />
+
+<div style="margin-bottom: 50px;">
+    @Html.ActionLink("Shopping cart", "ShoppingCart", null, new { @class = "btn btn-outline-success btn-lg btn-block" })
+</div>

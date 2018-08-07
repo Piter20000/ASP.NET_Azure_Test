@@ -1,0 +1,118 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #002B36;
+    color: #839496;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/*  ### _layout === ### */
+
+.jumbotron {
+    margin-top: 15px;
+}
+
+.Page_Title {
+    margin-top: 15px;
+    text-align: center;
+    color: chartreuse;
+}
+
+.navbar.navbar-inverse.navbar-fixed-top {
+    background-color: #002B36;
+    border: 0;
+    border: none;
+}
+
+.jumbotron {
+    background-color: #073642;
+    color: #839496;
+}
+
+/*  ### Footer ###  */
+
+#footer {
+    background-color: black;
+    padding-top: 15px;
+    padding-bottom: 6px;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+/*  ### Shop ###  */
+
+.Price {
+    color: #e62e00;
+}
+
+/*  ### Error Form Inputs ###  */
+
+.text-danger.field-validation-error {
+    color: #e62e00;
+}
+
+.form-control.text-box.single-line.input-validation-error {
+    border: 3px solid #e62e00;
+}
+
+/*  ### Error register form ###  */
+
+.text-danger.validation-summary-errors {
+    color: #e62e00;
+}
+
+.input-validation-error {
+    border: 3px solid #e62e00;
+}
+
+/*  ### Control Panel ###  */
+
+.Control_Panel {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*  ### Control Panel ###  */
+
+.form-horizontal {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.razorpay-payment-button {
+    color: #ffffff !important;
+    background-color: #7266ba;
+    border-color: #7266ba;
+    font-size: 14px;
+    padding: 10px;
+    margin: 0 auto 0 auto;
+    border-radius: 8px;
+}
+
+    .razorpay-payment-button:hover {
+        background-color: #7e72c0;
+    }

@@ -1,0 +1,63 @@
+﻿@model User_Informations
+@using NET.Models
+
+@{
+    // Check if Post exists
+    if (IsPost)
+    {
+        var RazorPayId = Request.Form["razorpay_payment_id"];
+
+        //Response.Redirect("Order");
+        //Response.Redirect("http://localhost:56863/Paymant/Call_Back_RazorPay");
+        @RazorPayId;
+    }
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    
+    <meta name="viewport" content="width=device-width">
+    <title>Index - Piotr Murdzia - ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    @Html.Partial("_NavBar")
+<hr/>
+
+<div class="container body-content">
+    <div style="max-width: 140px; margin: 15px auto 0 auto;">
+        <form action="https://localhost:44366/Payment/Call_Back_RazorPay" method="POST">
+            <script src="https://checkout.razorpay.com/v1/checkout.js"
+                    data-key="@RazorPay.Razor_Api_Key"
+                    data-amount="@Session["Total_Price"]"
+                    data-buttontext="Pay with RazorPay"
+                    data-name="ASP.NET - Piotr Murdzia"
+                    data-description="Testing"
+                    data-prefill.name="@Model.Fname @Model.Lname"
+                    data-prefill.email="@Model.Email"
+                    data-prefill.contact="@Model.Phone"
+                    data-theme.color="#F37254">
+            </script>
+    </form>
+    </div>
+    @using (Html.BeginForm("Order", "Shop"))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <div style="max-width: 92px; margin: 15px auto 0 auto;">
+                <input type="submit" value="Just Order" class="btn btn-outline-light" />
+            </div>
+        </div>
+    }
+    <footer id="footer">
+        <p>&copy; @DateTime.Now.Year - Piotr Murdzia - My ASP.NET Application</p>
+    </footer>
+</div>
+    <hr/>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

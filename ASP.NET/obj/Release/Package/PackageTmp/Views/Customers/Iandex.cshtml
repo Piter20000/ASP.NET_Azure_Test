@@ -1,0 +1,31 @@
+﻿@model  IEnumerable<NET.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Customers List</h2>
+
+@if (!Model.Any())
+{
+    <p>We don't have any customers yet.</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th><h3> Customers </h3></th>
+                <th><h3> ID </h3></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td>@customer.Name</td>
+                    <td>@customer.ID</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

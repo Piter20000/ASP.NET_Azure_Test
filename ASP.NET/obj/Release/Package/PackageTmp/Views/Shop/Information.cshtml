@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Information";
+}
+
+@if (Session["Message"] != null)
+{
+    <h1>@Session["Message"]</h1>
+
+    Session["Message"] = null;
+}
+else
+{
+    <h1>No message!</h1>
+}
+
+<div style="margin: 50px 0 50px 0;">
+    @Html.ActionLink("Back to Shop", "Index", null, new { @class = "btn btn-outline-danger btn-lg btn-block" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

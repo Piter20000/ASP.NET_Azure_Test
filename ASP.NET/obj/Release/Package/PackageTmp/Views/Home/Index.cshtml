@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">That's My first ASP.NET Application. Below is a link to the store simulator written in PHP.</p>
+    <p><a href="https://php-solution.000webhostapp.com/index.php" class="btn btn-primary btn-lg">My store in PHP  &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Example graph</h2>
+        <p>
+            The growth of Internet users around the world. This is a graph illustrating the linear and logarithmic growth of Internet users in the world in 1994 -2016.
+        </p>
+        <div style="margin-top: 20px;">
+            @Html.ActionLink("Graph >>", "Statistics", "Charts", null, new { @class = "btn btn-default" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h2>Shop Statistics</h2>
+        <p>Sample data about products in our store. These are example data - the chart is not connected to the database.</p>
+        <div style="margin-top: 20px;">
+            @Html.ActionLink("Graph >>", "Index", "Charts", null, new { @class = "btn btn-default" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h2>My GitHub</h2>
+        <p>Link to my GitHub. It contains several of my projects and useful classes..</p>
+        <div style="margin-top: 20px;">
+            <a class="btn btn-default" href="https://github.com/piter20000">GitHub >></a><br />
+        </div>
+    </div>
+</div>

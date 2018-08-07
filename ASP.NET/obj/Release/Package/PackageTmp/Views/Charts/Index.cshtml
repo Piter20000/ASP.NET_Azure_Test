@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div class="Page_Title">
+    <h4>Graphs</h4>
+</div>
+
+<hr />
+<script>
+    window.onload = function () {
+
+        var chart = new CanvasJS.Chart("chartContainer1", {
+            theme: "dark2",
+            backgroundColor: "#002B36",
+            exportFileName: "Doughnut Chart",
+            exportEnabled: true,
+            animationEnabled: true,
+            title: {
+                text: "Item Sold"
+            },
+            legend: {
+                cursor: "pointer",
+                itemclick: explodePie
+            },
+            data: [{
+                type: "doughnut",
+                innerRadius: 90,
+                showInLegend: true,
+                toolTipContent: "<b>{name}</b>: ${y} (#percent%)",
+                indexLabel: "{name} - #percent%",
+                dataPoints: [
+                    { y: 120, name: "Corsair Gaming Mouse SCIMITAR PRO RGB" },
+                    { y: 300, name: "TravCorsair Crystal 570X RGB ATX Mid Tower Caseelling" },
+                    { y: 800, name: "G.SKILL TridentZ RGB Series 32GB DDR4" },
+                    { y: 150, name: "Razer Blackwidow Gaming Mechanical Keyboard" },
+                    { y: 150, name: "Samsung 850EVO BULK Solid State Drive" },
+                    { y: 250, name: "NZXT H700i Mid Tower Chassis Tempered Case" }
+                ]
+            }]
+        });
+        chart.render();
+    }
+
+    function explodePie(e) {
+        if (typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+            e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+        } else {
+            e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+        }
+        e.chart.render();
+
+    }
+
+</script>
+
+<br />
+<div id="chartContainer1" style="height: 370px; width: 100%;"></div><br />
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
